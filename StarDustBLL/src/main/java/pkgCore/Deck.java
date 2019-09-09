@@ -44,7 +44,15 @@ public class Deck {
 	 *                    is shuffled.
 	 */
 	public Deck(int iNbrOfDecks) {
-		//TODO - Implement the constructor
+		for (int iCnt = 0; iCnt < iNbrOfDecks; iCnt++) {
+			for (eSuit ES : EnumSet.range(eSuit.HEARTS, eSuit.SPADES)) {
+				for (eRank ER : EnumSet.range(eRank.TWP, eRank.ACE)) {
+					cardsInDeck.add(new Card(ES, ER));
+				}
+			}
+		}
+		Collections.shuffle(cardsInDeck);
+		// TODO - Implement the constructor
 	}
 
 	/**
@@ -55,7 +63,7 @@ public class Deck {
 	 * @throws DeckException
 	 */
 	public Card Draw() throws DeckException {
-		//FIXME - Implement this method.  Shouldn't return null, return the right value
+		// FIXME - Implement this method. Shouldn't return null, return the right value
 		return null;
 
 	}
@@ -66,17 +74,16 @@ public class Deck {
 	 * @since Lab #1
 	 * @return Number of cards remaining in the deck
 	 * 
-	 * getiDeckCount - Return the number of cards remaining in the deck.
+	 *         getiDeckCount - Return the number of cards remaining in the deck.
 	 */
 	public int getiDeckCount() {
-		//FIXME - Implement this method.  Shouldn't return 0, return the right value
+		// FIXME - Implement this method. Shouldn't return 0, return the right value
 		return 0;
 	}
 
- 
 	/**
-	 * getCardsInDeck - getter for cardsInDeck.  It's private, must be invoked
-	 * with reflections.
+	 * getCardsInDeck - getter for cardsInDeck. It's private, must be invoked with
+	 * reflections.
 	 * 
 	 * @author BRG
 	 * @version Lab #3
@@ -84,10 +91,8 @@ public class Deck {
 	 * @return - the cards in the deck.
 	 */
 	private ArrayList<Card> getCardsInDeck() {
-		//FIXME - Implement this method.  Shouldn't return 0, return the right value
+		// FIXME - Implement this method. Shouldn't return 0, return the right value
 		return null;
 	}
- 
-	
-	
+
 }

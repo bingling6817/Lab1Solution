@@ -42,6 +42,12 @@ public class CardTest {
 		Card c2 = new Card(eSuit.HEARTS, eRank.TWO);
 
 		assertTrue(c1.equals(c2));
+		
+		Double d = new Double(10);
+				
+		assertFalse(c1.equals(d));
+		
+		assertTrue(c1.equals(c2));
 
 		Card c3 = new Card(eSuit.HEARTS, eRank.THREE);
 		assertFalse(c1.equals(c3));
