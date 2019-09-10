@@ -9,7 +9,7 @@ import pkgEnum.eSuit;
 import pkgException.DeckException;
 
 public class Deck {
-
+	public int iNbrOfDecks;
 	/**
 	 * @author BRG
 	 * @version Lab #1
@@ -44,15 +44,16 @@ public class Deck {
 	 *                    is shuffled.
 	 */
 	public Deck(int iNbrOfDecks) {
+		this.iNbrOfDecks = iNbrOfDecks;
+		cardsInDeck.ensureCapacity(iNbrofDecks * 52);
 		for (int iCnt = 0; iCnt < iNbrOfDecks; iCnt++) {
 			for (eSuit ES : EnumSet.range(eSuit.HEARTS, eSuit.SPADES)) {
-				for (eRank ER : EnumSet.range(eRank.TWP, eRank.ACE)) {
+				for (eRank ER : EnumSet.range(eRank.TWO, eRank.ACE)) {
 					cardsInDeck.add(new Card(ES, ER));
 				}
 			}
 		}
 		Collections.shuffle(cardsInDeck);
-		// TODO - Implement the constructor
 	}
 
 	/**
@@ -63,8 +64,10 @@ public class Deck {
 	 * @throws DeckException
 	 */
 	public Card Draw() throws DeckException {
-		// FIXME - Implement this method. Shouldn't return null, return the right value
-		return null;
+		if (cardsInDeck.size() == 0) {
+			throw new DeckException(this);
+		}
+		return this.cardsInDeck.get(0);
 
 	}
 
@@ -77,8 +80,7 @@ public class Deck {
 	 *         getiDeckCount - Return the number of cards remaining in the deck.
 	 */
 	public int getiDeckCount() {
-		// FIXME - Implement this method. Shouldn't return 0, return the right value
-		return 0;
+		return cardsInDeck.size();
 	}
 
 	/**
@@ -91,8 +93,7 @@ public class Deck {
 	 * @return - the cards in the deck.
 	 */
 	private ArrayList<Card> getCardsInDeck() {
-		// FIXME - Implement this method. Shouldn't return 0, return the right value
-		return null;
+		return cardsInDeck;
 	}
 
 }
